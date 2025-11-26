@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <title>PJ & Z Supply | Construction Materials & Building Supplies</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #f26522;
+            --secondary: #2c3e50;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --accent: #3498db;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .header-contact span {
+            margin-right: 20px;
+        }
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-right: 20px;
+        }
+        
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/Roof.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #e05512;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Materials Section */
+        .materials {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .material-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .material-img {
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .material-img::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        .material-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .material-name {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        
+        .material-info {
+            padding: 25px;
+        }
+        
+        .material-info h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+            font-size: 1.4rem;
+        }
+        
+        .material-info p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .material-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .material-tag {
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            background: white;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .about-image {
+            background: #f5f5f5;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact span {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-header {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-bottom: 15px;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-contact span {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .search-box {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .search-box input {
+                width: 70%;
+            }
+            
+            .search-box button {
+                width: 30%;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+            .logo-img {
+                height: 50px;
+                width: auto;
+                margin-right: 10px;
+            }
+
+            .about-photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span>📞 (555) 123-4567</span>
+                    <span>✉️ info@pjzsupply.com</span>
+                </div>
+                <div class="header-hours">
+                    <span>Mon-Fri: 7:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="main-header">
+                <!-- <div class="logo">
+                    <div style="width: 50px; height: 50px; background: var(--primary); border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">PJZ</div>
+                    <h1>PJ & Z <span>Supply</span></h1>
+                </div> -->
+                <div class="logo">
+                    <img src="img/logo.png" alt="PJ & Z Supply" class="logo-img">
+                    <h1>PJ & Z <span>Supply</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#materials">Materials</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search materials...">
+                        <button>Search</button>
+                    </div>
+                    <div class="cart-icon">
+                        🛒
+                        <div class="cart-count">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Your Trusted Construction Materials Partner</h2>
+            <p>PJ & Z Supply provides high-quality building materials, from aggregates to steel beams. We supply everything you need for successful construction projects.</p>
+            <a href="#materials" class="btn">Browse Materials</a>
+            <a href="#contact" class="btn btn-secondary">Request Quote</a>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materials" class="materials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Construction Materials</h2>
+                <p>Comprehensive building supplies for every stage of your construction project</p>
+            </div>
+            <div class="materials-grid">
+                <!-- Material 1: Aggregates -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Aggregate.png');">
+                        <div class="material-number">1</div>
+                        <div class="material-name">AGGREGATES</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Aggregates</h3>
+                        <p>Aggregates are the important constituents of the concrete which give body to the concrete and also reduce shrinkage. Aggregates occupy 70 to 80 % of total volume of concrete. So, we can say that one should know definitely about the aggregates in depth to study more about concrete.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Concrete</span>
+                            <span class="material-tag">Foundation</span>
+                            <span class="material-tag">Construction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 2: Masonry Blocks -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Mansory_Blc.png');">
+                        <div class="material-number">2</div>
+                        <div class="material-name">MASONRY BLOCKS</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Masonry Blocks</h3>
+                        <p>Masonry block is an important component in construction and building materials in many parts of the world. Concrete block is made from Portland Cement, aggregates and water. It is also known as a concrete masonry unit (CMU). As a building material, concrete offers several attractive characteristics to designers and builders.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Walls</span>
+                            <span class="material-tag">Structural</span>
+                            <span class="material-tag">CMU</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 3: Cement -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Cement.png');">
+                        <div class="material-number">3</div>
+                        <div class="material-name">CEMENT</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Cement</h3>
+                        <p>A cement is a binder, a substance used for construction that sets, hardens, and adheres to other materials to bind them together. Cement is seldom used on its own, but rather to bind fine aggregate (sand) and coarse aggregate (gravel) together. Cement mixed with fine aggregate produces mortar for masonry, or with fine aggregate and coarse aggregate, produces concrete.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Binding</span>
+                            <span class="material-tag">Mortar</span>
+                            <span class="material-tag">Concrete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 4: Steel -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Steel.png');">
+                        <div class="material-number">4</div>
+                        <div class="material-name">STEEL</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Steel</h3>
+                        <p>Steel is an alloy of iron and carbon that demonstrates improved mechanical properties compared to the pure form of iron. Due to its high elastic modulus, yield strength, fracture strength and low raw material cost, steel is one of the most commonly manufactured materials in the world.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Structural</span>
+                            <span class="material-tag">Reinforcement</span>
+                            <span class="material-tag">Alloy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 5: Tiles -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Tiles.png');">
+                        <div class="material-number">5</div>
+                        <div class="material-name">TILES</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Tiles</h3>
+                        <p>Tiles are hard-wearing, thin, flat, or curved pieces of material like ceramic, stone, or glass, used to cover surfaces like floors, walls, and roofs. They are also used in other contexts, such as rectangular counters in games or specific building units for drainage.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Flooring</span>
+                            <span class="material-tag">Walls</span>
+                            <span class="material-tag">Decorative</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 6: Wood -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Wood.png');">
+                        <div class="material-number">6</div>
+                        <div class="material-name">WOOD</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Wood</h3>
+                        <p>Wood is a versatile and sustainable construction material used for structural elements, flooring, walls, and finishes due to its high strength-to-weight ratio, good insulation properties, and environmental benefits.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Structural</span>
+                            <span class="material-tag">Finishing</span>
+                            <span class="material-tag">Sustainable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 7: Roof -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Roof.png');">
+                        <div class="material-number">7</div>
+                        <div class="material-name">ROOF MATERIALS</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Roof Materials</h3>
+                        <p>Steel roof is a durable and long-lasting roofing system made of steel sheets or tiles that can last 40-70 years or more, significantly longer than traditional asphalt shingles. Key advantages include its weather resistance to heavy rain, strong winds, and hail, and its fire resistance.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Protection</span>
+                            <span class="material-tag">Durable</span>
+                            <span class="material-tag">Weatherproof</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 8: PVC Pipe -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/PVC_Pipe.png');">
+                        <div class="material-number">8</div>
+                        <div class="material-name">PVC PIPES</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>PVC Pipes</h3>
+                        <p>PVC pipes are widely used plastic pipes for applications like water supply, irrigation, and drainage, known for being durable, corrosion-resistant, and easy to install. They come in rigid forms, like the more durable PVC-U, and flexible forms.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Plumbing</span>
+                            <span class="material-tag">Drainage</span>
+                            <span class="material-tag">Corrosion-resistant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 9: Bolts and Screws -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Bolt_Screws.png');">
+                        <div class="material-number">9</div>
+                        <div class="material-name">BOLTS & SCREWS</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Bolts and Screws</h3>
+                        <p>Bolts are used for heavy-duty, high-load applications that often require access to both sides of the assembly to use a nut. Screws are suitable for lighter loads and non-structural tasks, as they create their own threads directly into materials like wood, drywall, or concrete.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Fasteners</span>
+                            <span class="material-tag">Structural</span>
+                            <span class="material-tag">Assembly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Material 10: Steel Beams -->
+                <div class="material-card">
+                    <div class="material-img" style="background-image: url('img/Steel_Beams.png');">
+                        <div class="material-number">10</div>
+                        <div class="material-name">STEEL BEAMS</div>
+                    </div>
+                    <div class="material-info">
+                        <h3>Steel Beams</h3>
+                        <p>Steel beam is a structural element made from high-strength steel, commonly used in construction to support heavy loads by resisting bending and distributing weight across a structure.</p>
+                        <div class="material-tags">
+                            <span class="material-tag">Structural</span>
+                            <span class="material-tag">Support</span>
+                            <span class="material-tag">Heavy-duty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose PJ & Z Supply?</h2>
+                <p>We stand out in the construction materials industry for these key reasons</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Quality Assured</h3>
+                    <p>All our materials meet or exceed industry standards and certifications</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>On-time delivery to your construction site, when you need it</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Best market prices with volume discounts for large projects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👷</div>
+                    <h3>Expert Support</h3>
+                    <p>Technical advice from construction professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About PJ & Z Supply</h2>
+                    <p>PJ & Z Supply has been a trusted name in the construction materials industry for over 15 years. We specialize in providing high-quality building materials to contractors, builders, and DIY enthusiasts across the region.</p>
+                    <p>Our commitment to quality, reliability, and customer service has made us the preferred supplier for construction projects of all sizes. From residential homes to commercial buildings and infrastructure projects, we provide the materials you need to build with confidence.</p>
+                    <p>At PJ & Z Supply, we understand that every project is unique. That's why we offer personalized service and expert advice to help you select the right materials for your specific needs and budget.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/about-image.png" alt="PJ & Z Supply Company" class="about-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>Ready to Start Your Construction Project?</h2>
+            <p>Contact PJ & Z Supply today for a free quote on materials or to speak with our construction specialists</p>
+            <a href="#contact" class="btn">Get Your Quote Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PJ & Z Supply</h3>
+                    <p>Your trusted partner for premium construction materials and building supplies since 2008.</p>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">t</a>
+                        <a href="#">in</a>
+                        <a href="#">ig</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Product Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#materials">Aggregates</a></li>
+                        <li><a href="#materials">Masonry Blocks</a></li>
+                        <li><a href="#materials">Cement</a></li>
+                        <li><a href="#materials">Steel Products</a></li>
+                        <li><a href="#materials">Tiles</a></li>
+                        <li><a href="#materials">Wood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#materials">Materials</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <span>📍</span>
+                            <span>123 Construction Avenue, Builderstown, ST 12345</span>
+                        </li>
+                        <li>
+                            <span>📞</span>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li>
+                            <span>✉️</span>
+                            <span>info@pjzsupply.com</span>
+                        </li>
+                        <li>
+                            <span>🕒</span>
+                            <span>Mon-Fri: 7:00 AM - 6:00 PM<br>Sat: 8:00 AM - 4:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PJ & Z Supply. All rights reserved. | Professional Construction Materials Supplier</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Material card hover effects
+            const materialCards = document.querySelectorAll('.material-card');
+            materialCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
