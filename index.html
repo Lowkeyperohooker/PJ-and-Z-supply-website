@@ -26,15 +26,20 @@
         </div>
         <div class="container">
             <div class="main-header">
-                <!-- <div class="logo">
-                    <div style="width: 50px; height: 50px; background: var(--primary); border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">PJZ</div>
-                    <h1>PJ & Z <span>Supply</span></h1>
-                </div> -->
                 <div class="logo">
                     <img src="img/logo.png" alt="PJ & Z Supply" class="logo-img">
                     <h1>PJ & Z <span>Supply</span></h1>
                 </div>
-                <nav>
+
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Navigation menu -->
+                <nav id="mainNav">
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#materials">Materials</a></li>
@@ -43,6 +48,8 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
+
+                <!-- Header actions (search & cart) -->
                 <div class="header-actions">
                     <div class="search-box">
                         <input type="text" placeholder="Search materials...">
@@ -57,13 +64,17 @@
         </div>
     </header>
 
+    <div class="overlay" id="overlay"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h2>Your Trusted Construction Materials Partner</h2>
             <p>PJ & Z Supply provides high-quality building materials, from aggregates to steel beams. We supply everything you need for successful construction projects.</p>
-            <a href="#materials" class="btn">Browse Materials</a>
-            <a href="#contact" class="btn btn-secondary">Request Quote</a>
+            <div class="hero-buttons">
+                <a href="#materials" class="btn">Browse Materials</a>
+                <a href="#contact" class="btn btn-secondary">Request Quote</a>
+            </div>
         </div>
     </section>
 
